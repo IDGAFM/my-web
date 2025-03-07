@@ -166,23 +166,27 @@
             });
         });
 
-        function switchSong(index) {
-            console.log(`🎵 Переключение на песню ${index}`);
-        
-            audio.pause();
-            audio = new Audio(songs[index].src);
-            audio.currentTime = songs[index].startTime;
-            audio.play();
-        
-            currentSongIndex = index;
-            console.log(`✅ Текущая песня: ${songs[currentSongIndex].src}`);
-        
-            audio.addEventListener("timeupdate", updateSongText);
-        
+    function switchSong(index) {
+        console.log(`🎵 Переключение на песню ${index}`);
+    
+        audio.pause();
+        audio = new Audio(songs[index].src);
+        audio.play().then(() => {
             setTimeout(() => {
-                updateSongText();
-            }, 1000);
-        }
+                audio.currentTime = songs[index].startTime;
+            }, 500); // Даем время браузеру запустить воспроизведение
+        }).catch(err => console.error("Ошибка воспроизведения:", err));
+    
+        currentSongIndex = index;
+        console.log(`✅ Текущая песня: ${songs[currentSongIndex].src}`);
+    
+        audio.addEventListener("timeupdate", updateSongText);
+    
+        setTimeout(() => {
+            updateSongText();
+        }, 1000);
+    }
+
         
         
 
