@@ -134,11 +134,14 @@
                 btn.style.display = "none";
                 closeBtns[i].style.display = "inline-block";
                 songBlock.style.opacity = "1";
+                
+                // Прокрутка к блоку с музыкой
+                songBlock.scrollIntoView({ behavior: "smooth", block: "center" });
         
-                if (i === 3) { // Если открыли 4-ю карточку
+                if (i === 3) { 
                     let confirmSwitch = confirm("Песня будет переключена. Продолжить?");
                     if (!confirmSwitch) return;
-                    if (currentSongIndex !== 1) { // Если не играет вторая песня, переключаем
+                    if (currentSongIndex !== 1) { 
                         switchSong(1);
                     }
                 } else {
@@ -151,6 +154,7 @@
                 startTextAnimation(i);
             });
         });
+
         
 
         closeBtns.forEach((btn, i) => {
