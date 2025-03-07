@@ -249,6 +249,7 @@
     
         showCard(currentIndex);
         
+        songBlock.scrollIntoView({ behavior: "smooth", block: "center" });
 
         function updateSongBlockPosition() {
             const songBlock = document.getElementById("songBlock");
