@@ -250,9 +250,9 @@
             const songBlock = document.getElementById("songBlock");
         
             if (window.innerWidth <= 480) {
-                songBlock.style.top = "85%"; // Для мобильных экранов
+                songBlock.style.top = "100%"; // Для мобильных экранов
             } else if (window.innerWidth <= 768) {
-                songBlock.style.top = "90%"; // Для планшетов
+                songBlock.style.top = "110%"; // Для планшетов
             } else {
                 songBlock.style.top = "450px"; // Для больших экранов
             }
