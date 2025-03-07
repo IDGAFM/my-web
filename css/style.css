@@ -470,9 +470,6 @@ img {
 }
 
 @media (max-width: 480px) {
-    body {
-        padding-bottom: 150px;
-    }
 
   
     .song-info {
